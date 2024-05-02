@@ -16,3 +16,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * 1 * delta
 	move_and_slide()
+
+@rpc("any_peer","call_local")
+func hit():
+	queue_free()

@@ -34,8 +34,13 @@ func _physics_process(delta):
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
 		move_and_slide()
+		
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			if collision.get_collider().has_method("hit"):
+				collision.get_collider().hit.rpc()
+
 	else:
 		global_position = global_position.lerp(syncPos, .5)
 		rotation_degrees = lerpf(rotation_degrees, syncRot, .5)
