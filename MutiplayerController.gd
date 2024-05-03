@@ -1,7 +1,7 @@
 extends Control
 
-@export var Address = "127.0.0.1"
-@export var port = 4200
+@export var Address = "0.0.0.0"
+@export var port = 8080
 var peer
 
 # Called when the node enters the scene tree for the first time.
@@ -79,9 +79,9 @@ func _on_host_button_down():
 
 func _on_join_button_down():
 	peer = ENetMultiplayerPeer.new()
-	peer.create_client(Address, port)
+	peer.create_client($ServerIP.text, int($ServerPort.text))
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
-	multiplayer.set_multiplayer_peer(peer)	
+	multiplayer.set_multiplayer_peer(peer)
 	pass # Replace with function body.
 
 
