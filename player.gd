@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+signal life_changed(player_hearts)
 
+var max_hearts: int = 3
+var hearts: int = max_hearts
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -39,6 +42,12 @@ func _physics_process(delta):
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			if collision.get_collider().has_method("hit"):
+				hearts -= 1
+				print("Emiting signal...")
+				emit_signal("life_changed", hearts)
+				if hearts <= 0:
+					dead.rpc()
+					print("Gameeee Oveeeeeer :X")
 				collision.get_collider().hit.rpc()
 
 	else:
@@ -51,3 +60,7 @@ func fire():
 	b.global_position = $GunRotation/BulletSpawn.global_position
 	b.rotation_degrees = $GunRotation.rotation_degrees
 	get_tree().root.add_child(b)
+	
+@rpc("any_peer","call_local")
+func dead():
+	queue_free()
