@@ -61,14 +61,14 @@ func StartGame():
 	
 func hostGame():
 	peer = ENetMultiplayerPeer.new()
-	var error = peer.create_server(port, 2)
+	var error = peer.create_server(port, 10)
 	if error != OK:
 		print("cannot host: " + error)
 		return
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	
 	multiplayer.set_multiplayer_peer(peer)
-	print("Waiting For Players!")
+	print("Waiting For Players on host: "+ Address + "  port " + str(port))
 	
 	
 func _on_host_button_down():

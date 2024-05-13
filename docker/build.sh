@@ -1,0 +1,1 @@
+docker build -t registry.truesystem.com.br/multiplayer:latest .

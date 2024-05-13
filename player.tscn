@@ -148,6 +148,4 @@ texture = ExtResource("2_8kqsh")
 position = Vector2(53, 0)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_interval = 0.1
-delta_interval = 0.1
 replication_config = SubResource("SceneReplicationConfig_c85fd")
