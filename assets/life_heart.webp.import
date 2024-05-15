@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6y0w06xobc7d"
-path="res://.godot/imported/building_04.png-bd896e4aea52b5eebb0fed9b5bff8268.ctex"
+uid="uid://cvx6o62ckhu7t"
+path="res://.godot/imported/life_heart.webp-983a0d74dfef70a90df86bd5aaa3b409.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://building_04.png"
-dest_files=["res://.godot/imported/building_04.png-bd896e4aea52b5eebb0fed9b5bff8268.ctex"]
+source_file="res://assets/life_heart.webp"
+dest_files=["res://.godot/imported/life_heart.webp-983a0d74dfef70a90df86bd5aaa3b409.ctex"]
 
 [params]
 

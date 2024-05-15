@@ -43,7 +43,7 @@ func connection_failed():
 @rpc("any_peer")
 func SendPlayerInformation(name, id):
 	if !GameManager.Players.has(id):
-		GameManager.Players[id] ={
+		GameManager.Players[id] = {
 			"name" : name,
 			"id" : id,
 			"score": 0
@@ -55,7 +55,7 @@ func SendPlayerInformation(name, id):
 
 @rpc("any_peer","call_local")
 func StartGame():
-	var scene = load("res://testScene.tscn").instantiate()
+	var scene = load("res://cenas/testScene.tscn").instantiate()
 	get_tree().root.add_child(scene)
 	self.hide()
 	
