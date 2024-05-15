@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 signal life_changed(player_hearts)
-
 var max_hearts: int = 3
 var hearts: int = max_hearts
 const SPEED = 300.0
@@ -54,6 +53,8 @@ func _physics_process(delta):
 		global_position = global_position.lerp(syncPos, .5)
 		rotation_degrees = lerpf(rotation_degrees, syncRot, .5)
 
+
+
 @rpc("any_peer","call_local")
 func fire():
 	var b = bullet.instantiate()
@@ -64,3 +65,4 @@ func fire():
 @rpc("any_peer","call_local")
 func dead():
 	queue_free()
+
