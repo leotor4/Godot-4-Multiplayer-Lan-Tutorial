@@ -16,7 +16,15 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * 1 * delta
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider():
+			hit()
 
 @rpc("any_peer","call_local")
 func hit():
 	queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	hit()
